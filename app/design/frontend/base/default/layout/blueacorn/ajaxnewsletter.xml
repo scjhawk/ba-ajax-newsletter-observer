@@ -9,8 +9,5 @@
         <reference name="before_body_end">
             <block type="core/template" name="newsletterjs" template="blueacorn/newsletterjs.phtml" />
         </reference>
-        <reference name="content">
-            <block type="core/template" name="newsmessages" before="-" template="blueacorn/messageblock.phtml" />
-        </reference>
     </default>
 </layout>

@@ -44,7 +44,7 @@ class BlueAcorn_AjaxNewsletter_Model_Observer
             $controller = $observer->getEvent()->getControllerAction();
 
             if (Mage::app()->getRequest()->getParam('is-ajax')) {
-                $submittedEmail = (string)$_POST['email'];
+                $submittedEmail = $request->getPost('email');
 
                 try {
                     // Check if the email is valid

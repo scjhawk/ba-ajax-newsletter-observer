@@ -1,9 +1,9 @@
 var AjaxSubscribe = Class.create({
     initialize: function(url) {
-        this.actionUrl  = url + 'ajaxnewsletter/subscribe/subscribe';
-        this.thisForm   = newsletterSubscriberFormDetail;
-        this.emailAddr  = '';
-        this.response   = '';
+        this.thisForm    = newsletterSubscriberFormDetail;
+        this.emailAddr   = '';
+        this.response    = '';
+        this.msgTemplate = new Template("<ul class='messages'><li class='#{status}-msg' id='nl_message_container'><ul><li id='ajax_message'>#{message}</li></ul></li></ul>");
 
         // Assign the class as a variable so that the observer can call the class's methods.
         var parent = this;
@@ -43,12 +43,10 @@ var AjaxSubscribe = Class.create({
 
     addResponse: function() {
         // Insert the returned message in the <li> tag created on page load, and use the class associated with the status (error or success)
-        var message_item = $$("li#nl_message_container")[0];
-        var currentClass = message_item.classNames();
-        message_item.removeClassName(currentClass);
-        message_item.addClassName(this.response.status + "-msg");
-        message_item.update('<ul><li>' + this.response.message + '</li></ul>');
-        console.log('Response success!');
+        var mainArea = $$("div.col-main")[0];
+        var subscribeResponse = this.msgTemplate.evaluate({'status' : this.response.status, 'message' : this.response.message});
+        mainArea.insert({top: subscribeResponse});
+        console.log("Response success with templates!");
 
     }
 });
