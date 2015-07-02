@@ -34,7 +34,6 @@ var AjaxSubscribe = Class.create({
                 console.log('Request success!');
                 parent.response = JSON.parse(transport.responseText);
                 console.log(parent.response);
-                $('nl_message_container').show();
                 parent.addResponse();
                 parent.thisForm.form.reset();
             }
