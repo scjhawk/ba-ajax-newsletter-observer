@@ -1,0 +1,6 @@
+#Ajax Newsletter (Observer) Project
+app/code/local/* app/code/local
+app/design/frontend/base/default/layout/* app/design/frontend/base/default/layout
+app/design/frontend/base/default/template/* app/design/design/frontend/base/default/template
+app/etc/modules/BlueAcorn_AjaxNewsletter.xml app/etc/modules/BlueAcorn_AjaxNewsletter.xml
+js/blueacorn/ajaxnewsletter.js js/blueacorn/ajaxnewsletter.js
