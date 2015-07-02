@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>  <!-- 'Header' for section, displayed under Config -->
+        <blueacorn translate="label" module="blueacorn_ajaxnewsletter">
+            <label>Blue Acorn</label>
+            <sort_order>102</sort_order>
+        </blueacorn>
+    </tabs>
+    <sections>
+        <ajaxnewsoptions translate="label" module="blueacorn_ajaxnewsletter">
+            <label>Ajax Newsletter Signup</label>
+            <tab>blueacorn</tab> <!-- Defined within the <tabs> section -->
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <ajaxsubmit translate="label">  <!-- Section displayed on page shown when 'Ajax Newsletter Setup is clicked in side menu -->
+                    <label>Ajax Newsletter Submission</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                    </fields>
+                </ajaxsubmit>
+            </groups>
+        </ajaxnewsoptions>
+    </sections>
+</config>

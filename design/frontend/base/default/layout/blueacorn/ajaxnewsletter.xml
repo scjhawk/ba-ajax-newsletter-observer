@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addJs" ifconfig="ajaxnewsoptions/ajaxsubmit/enabled">
+                <script>blueacorn/ajaxnewsletter.js</script>
+            </action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="newsletterjs" template="blueacorn/newsletterjs.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="newsmessages" before="-" template="blueacorn/messageblock.phtml" />
+        </reference>
+    </default>
+</layout>

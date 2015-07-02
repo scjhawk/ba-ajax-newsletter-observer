@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @copyright  Copyright (c) 2015 Blue Acorn (http://www.blueacorn.com)
+ * @author: Grant Wimmer
+ * @namespace: BlueAcorn
+ * @module: AjaxNewsletter
+ *
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ **/
+-->
+<config>
+    <modules>
+        <BlueAcorn_AjaxNewsletter>
+            <version>0.0.1</version>
+        </BlueAcorn_AjaxNewsletter>
+    </modules>
+    <global>
+        <helpers>
+            <blueacorn_ajaxnewsletter> <!-- Helper file is required for config section -->
+                <class>BlueAcorn_AjaxNewsletter_Helper</class>
+            </blueacorn_ajaxnewsletter>
+        </helpers>
+        <models>
+            <blueacorn_ajaxnewsletter> <!--- Define the model for the observer -->
+                <class>BlueAcorn_AjaxNewsletter_Model</class>
+            </blueacorn_ajaxnewsletter>
+        </models>
+    </global>
+    <frontend>
+        <routers>   <!-- Set the controller for the module -->
+            <blueacorn_ajaxnewsletter>
+                <use>standard</use>
+                <args>
+                    <module>BlueAcorn_AjaxNewsletter</module>
+                    <frontName>ajaxnewsletter</frontName>
+                </args>
+            </blueacorn_ajaxnewsletter>
+        </routers>
+        <layout>
+            <updates> <!-- Specify layout XML for module -->
+                <blueacorn_ajaxnewsletter>
+                    <file>blueacorn/ajaxnewsletter.xml</file>
+                </blueacorn_ajaxnewsletter>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_predispatch_newsletter_subscriber_new>   <!-- Add observer to newsletter submission form -->
+                <observers>
+                    <blueacorn_ajaxnewsletter>
+                        <type>singleton</type>
+                        <class>blueacorn_ajaxnewsletter/observer</class>
+                        <method>processSubscription</method>
+                    </blueacorn_ajaxnewsletter>
+                </observers>
+            </controller_action_predispatch_newsletter_subscriber_new>
+        </events>
+    </frontend>
+    <default>
+        <ajaxnewsoptions>
+            <ajaxsubmit>
+                <enabled>1</enabled>
+            </ajaxsubmit>
+        </ajaxnewsoptions>
+    </default>
+</config>
