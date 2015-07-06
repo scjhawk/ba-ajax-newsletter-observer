@@ -41,8 +41,9 @@ var AjaxSubscribe = Class.create({
     },
 
     addResponse: function() {
-        var message = $$('ul.message');
-        if (message) message.remove();
+        // If a message is already being displayed on the screen, remove it to avoid duplication
+        var msg = $$("ul.messages")[0];
+        if (msg) msg.remove();
 
         // Insert the returned message in the <li> tag created on page load, and use the class associated with the status (error or success)
         var mainArea = $$("div.col-main")[0];
