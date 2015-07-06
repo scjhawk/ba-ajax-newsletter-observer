@@ -41,6 +41,9 @@ var AjaxSubscribe = Class.create({
     },
 
     addResponse: function() {
+        var message = $$('ul.message');
+        if (message) message.remove();
+
         // Insert the returned message in the <li> tag created on page load, and use the class associated with the status (error or success)
         var mainArea = $$("div.col-main")[0];
         var subscribeResponse = this.msgTemplate.evaluate({'status' : this.response.status, 'message' : this.response.message});
